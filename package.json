@@ -18,6 +18,11 @@
   },
   "homepage": "https://github.com/AntoinouM/CCL2#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "bootstrap": "^3.4.1",
+    "bootstrap-scss": "^4.6.1",
+    "express": "^4.18.1",
+    "jquery": "^3.6.0",
+    "ruby": "^0.6.1",
+    "scss": "^0.2.4"
   }
 }
