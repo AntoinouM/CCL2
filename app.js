@@ -34,11 +34,12 @@ app.use(cors());
 
 const fileUpload = require('express-fileupload');
 app.use(fileUpload({createParentPath: true})) // we want to upload a picture, if on upload the path does not exist, we allow the app to create it on its own
-/*
+
 const indexRouter = require('./routes/index'); // importing the const from the module index.js in routes
 app.use('/', indexRouter);
 
-const indexUsers = require('./routes/users');
+/*
+const indexClimbers = require('./routes/climber');
 app.use('/users', indexUsers);
 */
 app.get("/", (req, res) => {
