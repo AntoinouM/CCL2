@@ -12,7 +12,6 @@ router.get('/', (req, res)=>
 router.get('/home', (req, res) => {
     climbersModel.getUsers()
         .then(users => {
-            console.log(users)
             res.render('home', {users: users})
         })
 })

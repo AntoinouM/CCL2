@@ -9,7 +9,6 @@ const mainDir = dirname(require.main.filename)
 function getUsers(req, res, next) {
     climbersModel.getUsers()
         .then(users => {
-            console.log(users)
             res.render('climbers', {users})
         }) //shortcut to write arrow function
         .catch(error => res.sendStatus(500))
@@ -95,7 +94,6 @@ function deleteUser (req, res, send) {
 
 function getMe(req, res, send) {
     let cookieId = authenticationService.getCookieInfo(req.cookies).id;
-    console.log(cookieId)
     climbersModel.getMe(cookieId)
         .then(user => {
             res.render('me', {user})
