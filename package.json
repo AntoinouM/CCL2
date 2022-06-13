@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/AntoinouM/CCL2#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
     "bootstrap": "^3.4.1",
     "bootstrap-scss": "^4.6.1",
@@ -27,7 +28,10 @@
     "express": "^4.18.1",
     "express-fileupload": "^1.4.0",
     "jquery": "^3.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
     "ruby": "^0.6.1",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "uuid": "^8.3.2"
   }
 }

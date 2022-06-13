@@ -8,12 +8,14 @@ app.use('/bootstrap/css', express.static(path.join(__dirname, 'node_modules/boot
 app.use('/bootstrap/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')))
 app.use('/bootstrap/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 
-//const db = require('./services/database.js');
+const db = require('./services/database.js');
 
 // require the module that will allow us to parse the JSON data from the server
 const bodyParser = require('body-parser'); // node.js method that replace the js JSON,parse()
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+// app.locals.VARIABLENAME store a local variable than can be call in ejs
 
 // require the node module that read cookie
 const cookieParser = require('cookie-parser');
