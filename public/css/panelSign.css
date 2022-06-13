@@ -108,7 +108,7 @@ body {
 }
 
 .overlay {
-    background: url(/img/pannel-bg.png);
+    background: url('/img/pannel-bg.png');
     background-size: cover;
     height: 100%;
     left: -100%;
