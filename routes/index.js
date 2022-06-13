@@ -1,5 +1,6 @@
 const express = require('express');
 const climbersController = require("../controllers/climbersController");
+const climbersModel = require("../models/climbersModel");
 const router = express.Router();
 let storage = {}; //object to store the req.body
 
@@ -9,7 +10,11 @@ router.get('/', (req, res)=>
 });
 
 router.get('/home', (req, res) => {
-    res.render('home', {title: 'Homepage'})
+    climbersModel.getUsers()
+        .then(users => {
+            console.log(users)
+            res.render('home', {users: users})
+        })
 })
 
 router.post('/addUser', climbersController.addUser)

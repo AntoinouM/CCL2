@@ -7,10 +7,10 @@ const mainDir = dirname(require.main.filename)
 
 
 function getUsers(req, res, next) {
-    userModel.getUsers()
+    climbersModel.getUsers()
         .then(users => {
             console.log(users)
-            res.render('users', {users})
+            res.render('climbers', {users})
         }) //shortcut to write arrow function
         .catch(error => res.sendStatus(500))
 }

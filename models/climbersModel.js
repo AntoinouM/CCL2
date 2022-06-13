@@ -6,7 +6,7 @@ const {checkPassword} = require("../services/authentication");
 
 // let all the logic into model, the controller only handle the information
 let getUsers = () => new Promise((resolve, reject) => {    // getting a promise for managing asynch resolve if a method if all good, reject if error
-    db.query("SELECT * from users", function (err, users, fields) {
+    db.query("SELECT * from climbers", function (err, users, fields) {
         if (err) reject (err);
         resolve(users)
     })

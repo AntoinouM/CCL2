@@ -40,13 +40,10 @@ app.use(fileUpload({createParentPath: true})) // we want to upload a picture, if
 const indexRouter = require('./routes/index'); // importing the const from the module index.js in routes
 app.use('/', indexRouter);
 
-/*
-const indexClimbers = require('./routes/climber');
-app.use('/users', indexUsers);
-*/
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, 'views/index.ejs'))
-});
+
+const indexClimbers = require('./routes/climbers');
+app.use('/climbers', indexClimbers);
+
 
 app.listen(port, () => {
     console.log(`Listening on port http://localhost:${port}`);

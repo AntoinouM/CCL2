@@ -35,8 +35,7 @@ function authenticateUser({username, password}, user, res) {
         const accessToken = jwt.sign({id: user.UID, name: user.Name}, ACCESS_TOKEN_SECRET);
 
         res.cookie('accessToken', accessToken); //send a cookie
-        //res.redirect('/users/' + user.UID); //redirect to the correct page
-        res.send('hello there')
+        res.redirect('home');
     } else {
         res.send('Username or password incorrect.');
     }
