@@ -121,6 +121,18 @@ let deleteUser = (id) => new Promise((resolve, reject) => {
     })
 })
 */
+
+let getMe = (id) => new Promise((resolve, reject) => {
+    db.query(`SELECT * FROM climbers WHERE GID = ${parseInt(id)}`, function (err, user, fields) {
+        if (err) reject (err)
+        else if (user.length === 0) {
+            resolve ()
+        } else {
+            resolve(user[0])
+        }
+    })
+})
+
 module.exports = {
     getUsers,
     /*
@@ -133,4 +145,5 @@ module.exports = {
     uploadAvatar,
     deleteUser,
      */
+    getMe,
 }

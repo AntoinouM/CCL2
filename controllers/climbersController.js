@@ -93,6 +93,15 @@ function deleteUser (req, res, send) {
 }
 */
 
+function getMe(req, res, send) {
+    let cookieId = authenticationService.getCookieInfo(req.cookies).id;
+    console.log(cookieId)
+    climbersModel.getMe(cookieId)
+        .then(user => {
+            res.render('me', {user})
+        })
+}
+
 module.exports = {
     getUsers,
     /*
@@ -106,4 +115,5 @@ module.exports = {
     uploadAvatar,
     deleteUser,
     */
+    getMe,
 }

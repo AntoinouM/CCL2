@@ -32,7 +32,7 @@ function authenticateUser({username, password}, user, res) {
 // check if the user exist
     // if (user && checkPassword(password, user.Password))
     if (user) {
-        const accessToken = jwt.sign({id: user.UID, name: user.Name}, ACCESS_TOKEN_SECRET);
+        const accessToken = jwt.sign({id: user.GID, name: user.Name}, ACCESS_TOKEN_SECRET);
 
         res.cookie('accessToken', accessToken); //send a cookie
         res.redirect('home');

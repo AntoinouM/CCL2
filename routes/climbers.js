@@ -10,3 +10,4 @@ module.exports = router;
 const climbersController = require('../controllers/climbersController');
 router.get('/', climbersController.getUsers);
 
+router.get('/myprofile', climbersController.getMe);
