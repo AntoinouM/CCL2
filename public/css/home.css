@@ -3,15 +3,12 @@ header.masthead {
     overflow: hidden;
     padding-top: calc(7rem + 72px);
     padding-bottom: 7rem;
-    background-image: url('/img/home-bg-3.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: scroll;
-    background-size: auto 100%;
+    background-color: white;
 }
 
 .masthead-img {
     position: absolute;
+    display: block;
     top: 0;
     left: 0;
     height: auto;
@@ -65,7 +62,16 @@ header.masthead {
 
 .textTr {
     color: whitesmoke;
-    mix-blend-mode: difference;
+    text-shadow: 1px 5px 5px black;
+}
+
+.img-box-dp {
+    height: 25vh;
+    width: 20vw;
+}
+
+.content-box-dp {
+    min-height: 285px;
 }
 
 @media (min-width: 992px) {
@@ -78,5 +84,17 @@ header.masthead {
     }
     .masthead .masthead-content .masthead-subheading {
         font-size: 4rem;
+    }
+}
+
+@media (max-width: 1310px) {
+    .masthead-img {
+        display: none;
+    }
+    header.masthead {
+        background-color: #1d2124;
+    }
+    .content-box-dp > p .content-box-dp > h2 {
+        text-align: center;
     }
 }
