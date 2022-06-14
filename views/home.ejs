@@ -8,6 +8,7 @@
     <title>Home Page</title>
     <!--    <link rel="stylesheet" href="./css/bootstrap.min.css">-->
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/home.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -50,7 +51,71 @@
         </ul>
     </div>
 </nav>
-<div><%= users[0].Name %></div>
+<!-- Header-->
+<header class="masthead text-center text-white">
+    <img src="/img/home-bg-3.png" alt="background image" class="masthead-img">
+    <div class="masthead-content">
+        <div class="container px-5">
+            <h1 class="masthead-heading mb-0 textTr">A Rock At a Time</h1>
+            <h2 class="masthead-subheading mb-0 textTr">Rock by rock, we reach summits.</h2>
+            <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Into your next summit</a>
+        </div>
+    </div>
+ <!--   <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    -->
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+</header>
+<!-- Content section 1-->
+<section id="scroll">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="p-5"><img class="img-fluid rounded-circle" src="#" alt="..." /></div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <h2 class="display-4"><%= routes[0].Name %></h2>
+                    <p><%= routes[0].Description %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Content section 2-->
+<section>
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="p-5"><img class="img-fluid rounded-circle" src="#" alt="..." /></div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-5">
+                    <h2 class="display-4"><%= routes[1].Name %></h2>
+                    <p><%= routes[1].Description %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Content section 3-->
+<section>
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="p-5"><img class="img-fluid rounded-circle" src="#" alt="..." /></div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <h2 class="display-4"><%= routes[2].Name %></h2>
+                    <p><%= routes[2].Description %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer-->
 <footer class="text-center text-white" style="background-color: #f1f1f1;">
     <!-- Grid container -->
     <div class="container pt-4">
@@ -95,10 +160,15 @@
     <!-- Copyright -->
     <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2020 Copyright:
-        <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        <a class="text-dark" href="https://mdbootstrap.com/">a Rock at a Time</a>
     </div>
     <!-- Copyright -->
 </footer>
 
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS
+<script src="js/scripts.js"></script>
+-->
 </body>
 </html>

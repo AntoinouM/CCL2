@@ -1,0 +1,82 @@
+header.masthead {
+    position: relative;
+    overflow: hidden;
+    padding-top: calc(7rem + 72px);
+    padding-bottom: 7rem;
+    background-image: url('/img/home-bg-3.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;
+    background-size: auto 100%;
+}
+
+.masthead-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 55%;
+    z-index: 0;
+    clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+}
+
+.masthead .masthead-content {
+    z-index: 1;
+    position: relative;
+}
+.masthead .masthead-content .masthead-heading {
+    font-size: 4rem;
+}
+.masthead .masthead-content .masthead-subheading {
+    font-size: 2rem;
+}
+.masthead .bg-circle {
+    z-index: 0;
+    position: absolute;
+    border-radius: 100%;
+    background: linear-gradient(0deg, #ee0979 0%, #ff6a00 100%);
+}
+.masthead .bg-circle-1 {
+    height: 90rem;
+    width: 90rem;
+    bottom: -55rem;
+    left: -55rem;
+}
+.masthead .bg-circle-2 {
+    height: 50rem;
+    width: 50rem;
+    top: -25rem;
+    right: -25rem;
+}
+.masthead .bg-circle-3 {
+    height: 20rem;
+    width: 20rem;
+    bottom: -10rem;
+    right: 5%;
+    opacity: 25%;
+}
+.masthead .bg-circle-4 {
+    height: 30rem;
+    width: 30rem;
+    top: -5rem;
+    right: 35%;
+    opacity: 15%;
+}
+
+.textTr {
+    color: whitesmoke;
+    mix-blend-mode: difference;
+}
+
+@media (min-width: 992px) {
+    .masthead {
+        padding-top: calc(10rem + 55px);
+        padding-bottom: 10rem;
+    }
+    .masthead .masthead-content .masthead-heading {
+        font-size: 6rem;
+    }
+    .masthead .masthead-content .masthead-subheading {
+        font-size: 4rem;
+    }
+}
