@@ -44,6 +44,8 @@ app.use(fileUpload({createParentPath: true})) // we want to upload a picture, if
 const indexRouter = require('./routes/index'); // importing the const from the module index.js in routes
 app.use('/', indexRouter);
 
+const indexProjects = require('./routes/projects');
+app.use('/projects', indexProjects)
 
 const indexClimbers = require('./routes/climbers');
 app.use('/climbers', indexClimbers);
