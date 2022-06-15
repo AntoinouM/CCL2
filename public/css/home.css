@@ -1,12 +1,15 @@
-header.masthead {
+/*  TOP ELEMENT */
+.topContainer {
     position: relative;
     overflow: hidden;
-    padding-top: calc(7rem + 72px);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
     padding-bottom: 7rem;
-    background-color: white;
+    padding-top: calc(7rem + 72px);
 }
 
-.masthead-img {
+.topContainer img {
     position: absolute;
     display: block;
     top: 0;
@@ -17,84 +20,259 @@ header.masthead {
     clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
 }
 
-.masthead .masthead-content {
+.topContainer-content {
+    color: rgb(235, 235, 235);
     z-index: 1;
     position: relative;
-}
-.masthead .masthead-content .masthead-heading {
-    font-size: 4rem;
-}
-.masthead .masthead-content .masthead-subheading {
-    font-size: 2rem;
-}
-.masthead .bg-circle {
-    z-index: 0;
-    position: absolute;
-    border-radius: 100%;
-    background: linear-gradient(0deg, #ee0979 0%, #ff6a00 100%);
-}
-.masthead .bg-circle-1 {
-    height: 90rem;
-    width: 90rem;
-    bottom: -55rem;
-    left: -55rem;
-}
-.masthead .bg-circle-2 {
-    height: 50rem;
-    width: 50rem;
-    top: -25rem;
-    right: -25rem;
-}
-.masthead .bg-circle-3 {
-    height: 20rem;
-    width: 20rem;
-    bottom: -10rem;
-    right: 5%;
-    opacity: 25%;
-}
-.masthead .bg-circle-4 {
-    height: 30rem;
-    width: 30rem;
-    top: -5rem;
-    right: 35%;
-    opacity: 15%;
-}
-
-.textTr {
+    min-height: 15rem;
     color: whitesmoke;
     text-shadow: 1px 5px 5px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
 }
 
-.img-box-dp {
-    height: 25vh;
-    width: 20vw;
+.topContainer-content h1 {
+    font-size: 75px;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
-.content-box-dp {
-    min-height: 285px;
+.topContainer-content h2 {
+    font-size: 55px;
 }
 
-@media (min-width: 992px) {
-    .masthead {
-        padding-top: calc(10rem + 55px);
-        padding-bottom: 10rem;
+.btn {
+    background-image: linear-gradient(90deg, rgb(160, 100, 28) 0%, rgb(227, 176, 119) 74%);
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    padding: 0.9rem 4rem;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    border: none;
+    margin-top: 1rem;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn:focus {
+    outline: none;
+}
+
+@media (max-width: 1580px) {
+    .topContainer-content {
+        min-height: 10rem;
     }
-    .masthead .masthead-content .masthead-heading {
-        font-size: 6rem;
+
+    .topContainer-content h1 {
+        font-size: 55px;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
     }
-    .masthead .masthead-content .masthead-subheading {
-        font-size: 4rem;
+
+    .topContainer-content h2 {
+        font-size: 40px;
     }
 }
 
-@media (max-width: 1310px) {
-    .masthead-img {
+@media (max-width: 1370px) {
+    .topContainer img {
+        top: 0;
+        left: 0;
+        height: auto;
+        width: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+@media (max-width: 751px) {
+    .topContainer img {
         display: none;
     }
-    header.masthead {
-        background-color: #1d2124;
+    .topContainer{
+        background-color: bisque;
     }
-    .content-box-dp > p .content-box-dp > h2 {
+}
+
+@media (max-width: 600px) {
+    .topContainer-content h1 {
+        font-size: 40px;
+    }
+
+    .topContainer-content h2 {
+        font-size: 25px;
+    }
+    .topContainer {
+        padding-bottom: 5rem;
+        padding-top: calc(5rem + 22px);
+    }
+}
+
+/*  ROUTES ELEMENT */
+.horizontal-center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(244, 234, 221);
+}
+
+.route-box {
+    padding: 4rem 4rem 2rem 4rem;
+    display: flex;
+    width: 50%;
+    position: relative;
+    height: 15rem;
+    gap: 5rem;
+}
+
+.route-box:nth-child(even) {
+    border-top: 1px solid rgba(183, 129, 53, 0.3);
+    border-bottom: 1px solid rgba(183, 129, 53, 0.3);
+}
+
+.route-content {
+    word-wrap: break-word;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.route-content h3 {
+    font-size: 35px;
+    margin: 0;
+    padding-bottom: 1rem;
+}
+
+.route-content p {
+    font-size: 18px;
+}
+
+.route-img {
+    width: 35%;
+    position: relative;
+}
+
+.route-img img {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 50%;
+}
+
+@media (max-width: 1500px) {
+    .route-box {
+        padding: 0 3rem;
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        position: relative;
+        margin-top: 5rem;
+        height: 10rem;
+        gap: 1rem;
+        align-items: center;
+    }
+    section.route-box {
+        height: 350px;
+    }
+    .route-box:nth-child(even) {
+        flex-direction: column-reverse;
+    }
+    .route-img {
+        height: 400px;
+    }
+    .route-content {
         text-align: center;
     }
+    .route-img img {
+        position: absolute;
+        min-width: 250px;
+        width: 20vw;
+        height: auto;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        border-radius: 50%;
+    }
+    .route-content h3 {
+        font-size: 25px;
+        margin: 0;
+        padding-bottom: 1rem;
+    }
+
+    .route-content p {
+        font-size: 14px;
+    }
+}
+
+/*    PROJECTS DISPLAY    */
+.align-vertical {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 25%;
+    right: 0;
+    top: 0;
+}
+
+.project-display-top {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+}
+
+.project-box {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    margin: 1vh 0;
+}
+
+.project-img {
+    position: absolute;
+    width: 5vw;
+    height: 5vw;
+}
+
+.project-img > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.project-content {
+    width: 70%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(0, 50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-location {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0.5vh;
+
 }
