@@ -38,10 +38,14 @@
 
 <!-- Content -->
 <div class="contentContainer">
-    <select name="location-country" id="location-country" class="js-data">
-        <% for(let i = 0; i < routes.length; i++) { %>
-            <option value="<%= routes[i].LocationCountry %>"><%= routes[i].LocationCountry %></option>
-        <% } %>
+    <select name="climbing-type" id="climbing-type" class="select-field">
+        <option value=""></option>
+    </select>
+    <select name="location-country" id="location-country" class="select-field">
+        <option value=""></option>
+    </select>
+    <select name="location-state" id="location-state" class="select-field">
+        <option value=""></option>
     </select>
 </div>
 
