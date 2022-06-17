@@ -24,8 +24,8 @@
             <li><a href="#">ABOUT</a></li>
             <li class="sub-menu"><a href="#"><i class="fa fa-user-circle-o user-logo" aria-hidden="true"></i></a>
                 <ul>
-                    <li><a href="#">Item 1</a></li>
-                    <li><a href="#">Item 2</a></li>
+                    <li><a href="/climbers/myprofile">My profile</a></li>
+                    <li><a href="/logout">Log out</a></li>
                     <li><a href="#">Item 3</a></li>
                 </ul>
             </li>
@@ -54,7 +54,7 @@
             <section class="project-box">
                 <div class="project-img"><img src="/uploads/rote-wand-01.jpeg" alt=""></div>
                 <div class="project-content">
-                    <div class="project-location">Salzburg</div>
+                    <div class="project-location"> <%= users[2].Name %></div>
                     <div class="project-date">24 June 2022 - 12:00</div>
                 </div>
             </section>
@@ -95,13 +95,13 @@
                 slab followed by one easier, a little bit grassy pitch. The last 2 pitches are steeper more
                 powerfull climbing.</p>
         </div>
-        <div class="route-img"><img src="./uploads/silvapark-01.webp" alt=""></div>
+        <div class="route-img"><img src="../public/uploads/silvapark-01.webp" alt=""></div>
     </section>
 
     <section class="route-box">
         <div class="route-img"><img src="/uploads/silvapark-01.webp" alt=""></div>
         <div class="route-content">
-            <h3 class="route-title">Route 3</h3>
+            <h3 class="route-title"><%= routes[0].Name %>></h3>
             <p class="route-description">Fun line of the central part of Rote Wand. Climb 5 pitches of technical
                 slab followed by one easier, a little bit grassy pitch. The last 2 pitches are steeper more
                 powerfull climbing.</p>

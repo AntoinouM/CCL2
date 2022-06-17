@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routes</title>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/routes.css">
+</head>
+
+<body>
+
+<!-- Nav -->
+<header>
+    <div class="logo">LOGO</div>
+    <nav>
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ROUTES</a></li>
+            <li><a href="#">GROUPS</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li class="sub-menu"><a href="#"><i class="fa fa-user-circle-o user-logo" aria-hidden="true"></i></a>
+                <ul>
+                    <li><a href="/climbers/myprofile">My profile</a></li>
+                    <li><a href="/logout">Log out</a></li>
+                    <li><a href="#">Item 3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></div>
+</header>
+
+<!-- Content -->
+<div class="contentContainer">
+    <select name="location-country" id="location-country" class="js-data">
+        <% for(let i = 0; i < routes.length; i++) { %>
+            <option value="<%= routes[i].LocationCountry %>"><%= routes[i].LocationCountry %></option>
+        <% } %>
+    </select>
+</div>
+
+<!--
+<div class="contentContainer">
+    <% for(let i = 0; i < routes.length; i++) { %>
+
+        <div class="routes-box">
+            <p><%= routes[i].Name %></p>
+            <p><%= routes[i].Description %></p>
+            <p><img alt="routes image" src="/uploads/<%= routes[i].picture1 %>"></p>
+        </div>
+    <% } %>
+</div>
+-->
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="/js/navbar.js"></script>
+<script>
+    let routes = <%- routesJSON %>
+</script>
+<script src="/js/routes.js"></script>
+</body>
+
+</html>
