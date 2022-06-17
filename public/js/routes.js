@@ -66,7 +66,7 @@ selectCountry.onchange = function () {
         }
     } // end else
     // set the options with the array
-    for(let i = 0; i < routesStateValues.length; i++) {
+    for (let i = 0; i < routesStateValues.length; i++) {
         let optionState = document.createElement('option')
         optionState.value = routesStateValues[i];
         optionState.innerHTML = routesStateValues[i];
@@ -85,12 +85,42 @@ function removeOptions(selectObject) {
 }
 
 /** algorythm for filtering on select **/
-let type = selectType.value, country = selectCountry.value, state = selectState.value;
 selectState.onchange = () => stateChange()
 selectType.onchange = () => stateChange()
+
 // onchange for Country is already declared, the stateChange() function is called line 75
 
 
 function stateChange() {
-    console.log('type: ' + type, 'country: ' + country, 'state: ' + state)
+    let type, country, state;
+    if (selectType.value === "") type = ''; else {
+        type = selectType.id;
+    }
+    ;
+    if (selectCountry.value === "") country = ''; else {
+        country = selectCountry.id
+    }
+    ;
+    if (selectState.value === "") state = ''; else {
+        state = selectState.id
+    }
+    ;
+
+    let combination = type + country + state;
+
+    console.log(combination)
+    switch (type, country, state) {
+        case 'false false false':
+            console.log('number of true: 0')
+            break;
+        case 'true false false':
+            console.log('number of true: 1')
+            break;
+        case 'true true false':
+            console.log('number of true: 2')
+            break;
+        case 3:
+            console.log('number of true: 3')
+            break;
+    }
 }
