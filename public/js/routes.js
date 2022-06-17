@@ -1,11 +1,28 @@
 let selectedCountry;
-console.log(routes)
 // arrays declaration
 let routesCountryValues = [];
 let routesStateValues = [];
+let routesTypeValues = [];
 // elements declaration
 let selectCountry = document.getElementById('location-country');
 let selectState = document.getElementById('location-state');
+let selectType = document.getElementById('climbing-type');
+
+/** define select options for types **/
+// set types array
+for (let i = 0; i < routes.length; i++) {
+    if (!routesTypeValues.includes(routes[i].Type)) {
+        routesTypeValues.push(routes[i].Type)
+
+    }
+}
+// set the options with the array
+for (let i = 0; i < routesTypeValues.length; i++) {
+    let optionType = document.createElement('option')
+    optionType.value = routesTypeValues[i];
+    optionType.innerHTML = routesTypeValues[i];
+    selectType.appendChild(optionType)
+}
 
 
 /** define select options for countries **/
@@ -55,6 +72,7 @@ selectCountry.onchange = function () {
         optionState.innerHTML = routesStateValues[i];
         selectState.appendChild(optionState)
     }
+    stateChange();
 } // en onchange function
 
 /** Functions declaration **/
@@ -66,3 +84,13 @@ function removeOptions(selectObject) {
     selectObject.appendChild(option)
 }
 
+/** algorythm for filtering on select **/
+let type = selectType.value, country = selectCountry.value, state = selectState.value;
+selectState.onchange = () => stateChange()
+selectType.onchange = () => stateChange()
+// onchange for Country is already declared, the stateChange() function is called line 75
+
+
+function stateChange() {
+    console.log('type: ' + type, 'country: ' + country, 'state: ' + state)
+}
