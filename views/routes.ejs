@@ -48,11 +48,10 @@
     </select>
 </div>
 
-
 <div class="contentContainer">
     <% for(let i = 0; i < routes.length; i++) { %>
 
-        <div class="routes-box">
+        <div class="routes-box" data-LocationCountry="<%= routes[i].LocationCountry %>" data-Type="<%= routes[i].Type %>" data-LocationState="<%= routes[i].LocationState %>">
             <p><strong><%= routes[i].Name %></strong></p>
             <p><%= routes[i].Description %></p>
         </div>
@@ -63,7 +62,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="/js/navbar.js"></script>
 <script>
-    let routes = <%- routesJSON %>
+    let routes = <%-routesJSON%>
 </script>
 <script src="/js/routes.js"></script>
 </body>

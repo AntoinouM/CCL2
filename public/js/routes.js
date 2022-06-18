@@ -8,6 +8,8 @@ let selectCountry = document.getElementById('location-country');
 let selectState = document.getElementById('location-state');
 let selectType = document.getElementById('climbing-type');
 
+let user = {};
+
 /** define select options for types **/
 // set types array
 for (let i = 0; i < routes.length; i++) {
@@ -84,43 +86,104 @@ function removeOptions(selectObject) {
     selectObject.appendChild(option)
 }
 
-/** algorythm for filtering on select **/
+/** algorithm for filtering on select **/
 selectState.onchange = () => stateChange()
 selectType.onchange = () => stateChange()
-
 // onchange for Country is already declared, the stateChange() function is called line 75
 
 
 function stateChange() {
+
+    let divRoutes = document.querySelectorAll('.routes-box')
+
     let type, country, state;
-    if (selectType.value === "") type = ''; else {
-        type = selectType.id;
-    }
-    ;
-    if (selectCountry.value === "") country = ''; else {
-        country = selectCountry.id
-    }
-    ;
-    if (selectState.value === "") state = ''; else {
-        state = selectState.id
-    }
-    ;
+    let dataType, dataCountry, dataState;
+    if (selectType.value === '') {type = '0'} else {type = '1'}
+    if (selectCountry.value === '') {country = '0'} else {country = '1'}
+    if (selectState.value === '') {state = '0'} else {state = '1'}
 
-    let combination = type + country + state;
+    let combinationString = type + country + state;
+    // setting all select to null if type is null
+    if (selectType.value ==='') {
+        selectCountry.value = '';
+        selectState.value = '';
+    }
 
-    console.log(combination)
-    switch (type, country, state) {
-        case 'false false false':
-            console.log('number of true: 0')
+    switch (combinationString) {
+        case '100':
+            // checking for type
+            divRoutes.forEach((div) => {
+                dataType = div.getAttribute('data-Type');
+                if (dataType === selectType.value) {
+                    div.style.display = 'block';
+                } else {
+                    div.style.display = 'none';
+                }
+            })
             break;
-        case 'true false false':
-            console.log('number of true: 1')
+        case '110':
+            // checking for type & country
+            divRoutes.forEach((div) => {
+                dataType = div.getAttribute('data-Type');
+                dataCountry = div.getAttribute('data-LocationCountry');
+                if (dataType === selectType.value && dataCountry === selectCountry.value) {
+                    div.style.display = 'block';
+                } else {
+                    div.style.display = 'none';
+                }
+            })
             break;
-        case 'true true false':
-            console.log('number of true: 2')
+        case '111':
+            // checking for type & country & state
+            divRoutes.forEach((div) => {
+                dataType = div.getAttribute('data-Type');
+                dataCountry = div.getAttribute('data-LocationCountry');
+                dataState = div.getAttribute('data-LocationState');
+                if (dataType === selectType.value && dataCountry === selectCountry.value && dataState === selectState.value) {
+                    div.style.display = 'block';
+                } else {
+                    div.style.display = 'none';
+                }
+            })
             break;
-        case 3:
-            console.log('number of true: 3')
+        case '010':
+            // checking for country
+            divRoutes.forEach((div) => {
+                dataCountry = div.getAttribute('data-LocationCountry');
+                if (dataCountry === selectCountry.value) {
+                    div.style.display = 'block';
+                } else {
+                    div.style.display = 'none';
+                }
+            })
             break;
+        case '011':
+            // checking for country & state
+            divRoutes.forEach((div) => {
+                dataCountry = div.getAttribute('data-LocationCountry');
+                dataState = div.getAttribute('data-LocationState');
+                if (dataCountry === selectCountry.value && dataState === selectState.value) {
+                    div.style.display = 'block';
+                } else {
+                    div.style.display = 'none';
+                }
+            })
+            break;
+        default:
+            // display all for no select content
+            divRoutes.forEach((div) => {
+                div.style.display = 'block'
+            })
     }
 }
+/*
+    fetch("http://localhost:5000/routes")
+        .then((response) => {
+            // Do something with response
+            console.log(routes)
+        })
+        .catch(function (err) {
+            console.log("Unable to fetch -", err);
+        });
+
+ */
