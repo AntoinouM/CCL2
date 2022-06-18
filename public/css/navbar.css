@@ -1,5 +1,5 @@
 :root {
-    --navbar-height: 60px;
+    --navbar-height: 50px;
     --color-bg: chocolate;
     --color-sec-bg: rgb(169, 83, 22);
     --color-trd-bg: rgb(186, 129, 88);
@@ -45,7 +45,7 @@ header nav ul li {
 }
 
 header nav ul li.sub-menu:before {
-    content: '\f0d7';
+    content: '\f078';
     font-family: fontAwesome;
     line-height: var(--navbar-height);
     font-size: 24px;

@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Routes</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/routes.css">
@@ -37,21 +38,30 @@
 
 <!-- Content -->
 <div class="contentContainer">
-    <select name="climbing-type" id="climbing-type" class="select-field">
-        <option value=""></option>
-    </select>
-    <select name="location-country" id="location-country" class="select-field">
-        <option value=""></option>
-    </select>
-    <select name="location-state" id="location-state" class="select-field">
-        <option value=""></option>
-    </select>
+    <div class="search-bar">
+        <div class="select-box">
+            <select name="climbing-type" id="climbing-type" class="select-field">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="select-box">
+            <select name="location-country" id="location-country" class="select-field">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="select-box">
+            <select name="location-state" id="location-state" class="select-field">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
 </div>
 
 <div class="contentContainer">
     <% for(let i = 0; i < routes.length; i++) { %>
 
-        <div class="routes-box" data-LocationCountry="<%= routes[i].LocationCountry %>" data-Type="<%= routes[i].Type %>" data-LocationState="<%= routes[i].LocationState %>">
+        <div class="routes-box" data-LocationCountry="<%= routes[i].LocationCountry %>"
+             data-Type="<%= routes[i].Type %>" data-LocationState="<%= routes[i].LocationState %>">
             <p><strong><%= routes[i].Name %></strong></p>
             <p><%= routes[i].Description %></p>
         </div>
@@ -62,7 +72,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="/js/navbar.js"></script>
 <script>
-    let routes = <%-routesJSON%>
+    let routes = <%- routesJSON %>
 </script>
 <script src="/js/routes.js"></script>
 </body>
