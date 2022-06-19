@@ -23,8 +23,14 @@
     background-color: #0c5460;
 }
 
-.select-box {
+.select-box::after {
+    font-family: fontAwesome;
+    content: '\f0d7';
+}
 
+.select-box.active::after {
+    font-family: fontAwesome;
+    content: '\f0d8';
 }
 
 .select-field {

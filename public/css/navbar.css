@@ -45,10 +45,10 @@ header nav ul li {
 }
 
 header nav ul li.sub-menu:before {
-    content: '\f078';
+    content: '\f0d7';
     font-family: fontAwesome;
     line-height: var(--navbar-height);
-    font-size: 24px;
+    font-size: 20px;
     color: var(--color-font);
     right: 0;
     position: absolute;
@@ -60,6 +60,7 @@ header nav ul li.sub-menu:hover::before {
 
 header nav ul li.active.sub-menu:before {
     content: '\f0d8';
+    font-size: 20px;
     color: var(--color-font);
 }
 
