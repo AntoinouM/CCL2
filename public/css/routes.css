@@ -16,10 +16,12 @@
 .search-bar {
     display: flex;
     justify-content: center;
+    border-radius: 40px;
     align-items: center;
     gap: 25px;
     width: 650px;
-    height: 100px;
+    height: 60px;
+    margin-top: 1vh;
     background-color: #0c5460;
 }
 
@@ -28,7 +30,8 @@
     content: '\f0d7';
 }
 
-.select-box.active::after {
+
+.select-field.active::after {
     font-family: fontAwesome;
     content: '\f0d8';
 }
@@ -48,8 +51,8 @@
     background-color: var(--bg);
 }
 
-.select-field option {
-
+.select-field option:hover {
+    background-color: pink;
 }
 
 /* Remove IE arrow */
