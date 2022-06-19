@@ -147,9 +147,10 @@ function stateChange() {
             })
             break;
         case '010':
-            // checking for country
+            // checking for type & country
             divRoutes.forEach((div) => {
                 dataCountry = div.getAttribute('data-LocationCountry');
+                console.log(selectCountry.value)
                 if (dataCountry === selectCountry.value) {
                     div.style.display = 'block';
                 } else {
