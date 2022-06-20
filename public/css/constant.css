@@ -1,0 +1,42 @@
+:root {
+    /* general */
+    --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
+
+    /* route view - search */
+    --searchbox-padding-v: 25px;
+    --searchbox-padding-h: 40px;
+    --searchbox-margin-v: 2vh;
+    --searchbox-margin-h: 1vw;
+    --searchbox-border-radius: 20px;
+    --searchbox-bg: pink;
+    --searchbox-gap: 48px;
+
+    --search-font: white;
+    --search-font-size: 22px;
+    --search-bg: #2c3e50;
+    --search-bg-sec: darkgray;
+    --search-width: 160px;
+    --search-after-width: 25px;
+    --search-radius: 5px;
+    --search-height: 30px;
+    --search-margin-v: 1vh;
+    --search-margin-h: 1vw;
+    --search-padding-v: 5px;
+    --search-padding-h: 10px;
+    --search-border-color: red;
+
+    /* route view - content */
+    --contentcontainer-pading-h: 50px;
+    --left-container-bg: red;
+    --right-container-bg: blue;
+
+    /* navbar */
+    --navbar-height: 50px;
+    --navbar-color-bg: chocolate;
+    --navabr-color-sec-bg: rgb(169, 83, 22);
+    --navbar-color-trd-bg: rgb(186, 129, 88);
+    --navbar-color-font: #fff;
+    --navbar-color-font-active: #000;
+    --navbar-color-hover-nav: bisque;
+    --navbar-dropdown-width: 200px;
+}

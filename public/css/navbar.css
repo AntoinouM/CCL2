@@ -1,27 +1,18 @@
-:root {
-    --navbar-height: 50px;
-    --color-bg: chocolate;
-    --color-sec-bg: rgb(169, 83, 22);
-    --color-trd-bg: rgb(186, 129, 88);
-    --color-font: #fff;
-    --color-font-active: #000;
-    --color-hover-nav: bisque;
-    --dropdown-width: 200px;
-}
+@import './constant.css';
 
 header {
     position: absolute;
     top: 0;
     left: 0;
     padding: 0 100px;
-    background-color: var(--color-bg);
+    background-color: var(--navbar-color-bg);
     width: 100%;
     box-sizing: border-box;
     z-index: 10000;
 }
 
 header .logo {
-    color: var(--color-font);
+    color: var(--navbar-color-font);
     height: var(--navbar-height);
     line-height: var(--navbar-height);
     font-size: 24px;
@@ -49,25 +40,25 @@ header nav ul li.sub-menu:before {
     font-family: fontAwesome;
     line-height: var(--navbar-height);
     font-size: 20px;
-    color: var(--color-font);
+    color: var(--navbar-color-font);
     right: 0;
     position: absolute;
 }
 
 header nav ul li.sub-menu:hover::before {
-    color: var(--color-font-active);
+    color: var(--navbar-color-font-active);
 }
 
 header nav ul li.active.sub-menu:before {
     content: '\f0d8';
     font-size: 20px;
-    color: var(--color-font);
+    color: var(--navbar-color-font);
 }
 
 header nav ul li ul {
     position: absolute;
     right: 0;
-    background-color: var(--color-sec-bg);
+    background-color: var(--navabr-color-sec-bg);
     display: none;
     white-space: nowrap;
 }
@@ -78,14 +69,14 @@ header nav ul li.active ul {
 
 header nav ul li ul li {
     display: block;
-    width: var(--dropdown-width);
+    width: var(--navbar-dropdown-width);
 }
 
 header nav ul li a {
     height: var(--navbar-height);
     line-height: var(--navbar-height);
     padding: 0 20px;
-    color: var(--color-font);
+    color: var(--navbar-color-font);
     text-decoration: none;
     display: block;
 }
@@ -93,12 +84,12 @@ header nav ul li a {
 header nav ul li a:hover,
 header nav ul li a.active
 {
-    color: var(--color-font-active);
-    background-color: var(--color-hover-nav);
+    color: var(--navbar-color-font-active);
+    background-color: var(--navbar-color-hover-nav);
 }
 
 .menu-toggle {
-    color: var(--color-font);
+    color: var(--navbar-color-font);
     float: right;
     line-height: var(--navbar-height);
     font-size: 24px;
@@ -128,7 +119,7 @@ header nav ul li a.active
         position: absolute;
         width: 100%;
         height: calc(var(--navbar-height) * 5);
-        background-color: var(--color-sec-bg);
+        background-color: var(--navabr-color-sec-bg);
         top: var(--navbar-height);
         left: -100%;
         transition: 0.5s;
@@ -142,7 +133,7 @@ header nav ul li a.active
     }
     header nav ul li.active ul {
         position: relative;
-        background-color: var(--color-trd-bg);
+        background-color: var(--navbar-color-trd-bg);
     }
     header nav ul li ul li {
         width: 100%;

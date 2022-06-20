@@ -42,6 +42,12 @@ function updateUser (req, res, send) {
 
 
  */
+function addProject(req, res, next) {
+    climbersModel.addProject(req.body)
+        .then(/* here add next move call climbersModel...*/)
+        .catch()
+}
+
 function addUser (req, res, send) {
     climbersModel.addUser(req.body)
         .then(user => {
@@ -114,4 +120,5 @@ module.exports = {
     deleteUser,
     */
     getMe,
+    addProject,
 }

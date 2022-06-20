@@ -1,9 +1,4 @@
-:root {
-    --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
-    --font: white;
-    --bg: #2c3e50;
-    --bg-sec: darkgray;
-}
+@import './constant.css';
 
 .searchContainer {
     position: relative;
@@ -15,25 +10,36 @@
 
 .search-bar {
     display: flex;
-    justify-content: center;
-    border-radius: 40px;
-    align-items: center;
-    gap: 25px;
-    width: 650px;
-    height: 60px;
-    margin-top: 1vh;
-    background-color: #0c5460;
+    justify-content: space-between;
+    padding: var(--searchbox-padding-v) var(--searchbox-padding-h);
+    border-radius: var(--searchbox-border-radius);
+    gap: var(--searchbox-gap);
+    margin-top: var(--searchbox-margin-v);
+    background-color: var(--searchbox-bg);
+    margin-bottom: var(--searchbox-margin-v);
+}
+
+
+
+.select-box {
+    position: relative;
 }
 
 .select-box::after {
     font-family: fontAwesome;
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    right: var(--search-after-width);
+    transform: translateX(100%);
     content: '\f0d7';
-}
-
-
-.select-field.active::after {
-    font-family: fontAwesome;
-    content: '\f0d8';
+    width: var(--search-after-width);
+    border-radius: 0 var(--search-radius) var(--search-radius) 0;
+    height: 99%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--search-bg-sec);
 }
 
 .select-field {
@@ -45,17 +51,82 @@
     -moz-appearance: none;
 
     /* styling */
-    min-width: 100px;
-    width: 10vw;
-    padding: 5px;
-    background-color: var(--bg);
+    width: calc(var(--search-width) + var(--search-after-width));
+    padding: var(--search-padding-v) 0;
+    background-color: var(--search-bg);
+    border-radius: var(--search-radius);
 }
 
-.select-field option:hover {
-    background-color: pink;
-}
 
 /* Remove IE arrow */
 select::-ms-expand {
     display: none;
+}
+
+.routes-box {
+    cursor: pointer;
+} .routes-box:hover {background-color: #ef7d7d}
+
+#route-info-container-mobile { /* for mobile */
+    display: none;
+}
+
+.contentContainer {
+    display: flex;
+    gap: 70px;
+    padding: var(--contentcontainer-pading-h);
+}
+
+.left-container {
+    overflow-y: auto;
+    width: 32%;
+    background-color: var(--left-container-bg);
+}
+
+.right-container {
+    width: 65%;
+    background-color: var(--right-container-bg);
+}
+
+.route-info-img {
+    position: relative;
+    width: 350px;
+    height: 200px;
+    overflow: hidden;
+}
+
+
+.route-info-container {
+    display: none;
+}
+
+.route-info-img img {
+    height: auto;
+    width: 100%;
+}
+
+@media (max-width: 1000px) {
+    .search-bar {
+        flex-direction: column;
+    }
+    .select-box {
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+    }
+    .select-box::after {
+        height: 60%;
+        top: 43%;
+    }
+}
+
+.group-form-popup {
+    display: none;
+    flex-direction: column;
+    padding: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
 }

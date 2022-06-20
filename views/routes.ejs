@@ -40,32 +40,71 @@
 <div class="searchContainer">
     <div class="search-bar">
         <div class="select-box">
+            <label for="climbing-type">Climbing type:</label>
             <select name="climbing-type" id="climbing-type" class="select-field">
                 <option value=""></option>
             </select>
         </div>
         <div class="select-box">
+            <label for="location-country">Country:</label>
             <select name="location-country" id="location-country" class="select-field">
                 <option value=""></option>
             </select>
         </div>
         <div class="select-box">
+            <label for="location-state">State:</label>
             <select name="location-state" id="location-state" class="select-field">
                 <option value=""></option>
             </select>
         </div>
     </div>
 </div>
+    <form action="/climbers/addProject" class="group-form-popup" id="group-form-popup" method="post">
+    <label for="project-date">When do you want to go?</label>
+    <input type="date" id="project-date" class="input" name="Date" />
+    <label for="project-time">What time?</label>
+    <input type="time" id="project-time" class="input" name="Time" />
+    <div class="buttons-container">
+    <button class="btn" onclick="hidePopUp()">Cancel</button>
+
+    <input type="submit" class="btn" value="Confirm" />
+    </div>
+    </form>
 
 <div class="contentContainer">
+    <div class="left-container">
     <% for(let i = 0; i < routes.length; i++) { %>
 
-        <div class="routes-box" data-LocationCountry="<%= routes[i].LocationCountry %>"
+        <div onclick="selectRoute('<%= routes[i].RID %>')" class="routes-box" data-LocationCountry="<%= routes[i].LocationCountry %>"
              data-Type="<%= routes[i].Type %>" data-LocationState="<%= routes[i].LocationState %>">
             <p><strong><%= routes[i].Name %></strong></p>
             <p><%= routes[i].Description %></p>
+            <div class="route-img"><%= routes[i].picture1 %></div>
+            <div class="route-info-container" id="route-info-container-mobile">
+                <div class="route-info">
+
+                </div>
+            </div>
         </div>
     <% } %>
+    </div>
+
+<div class="right-container">
+    <% for(let i = 0; i < routes.length; i++) { %>
+    <div class="route-info-container" id="<%= routes[i].RID %>">
+        <div class="route-info-img">
+            <% if(routes[i].picture1 === null) {%>
+                <img src="/img/image-not-found.png" alt="">
+                <% } else { %>
+            <img src="/uploads/<%= routes[i].picture1 %>" alt=""></div>
+        <% } %>
+        <div class="route-info">
+            <h2><%= routes[i].LocationCountry %>, <%= routes[i].LocationMountain %></h2>
+        </div>
+        <button class="btn" onclick="showPopUp('<%= routes[i].RID %>')">Go there</button>
+    </div>
+        <% } %>
+</div>
 </div>
 
 

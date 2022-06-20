@@ -97,17 +97,19 @@ function stateChange() {
     let divRoutes = document.querySelectorAll('.routes-box')
 
     let type, country, state;
+
+
+    // setting all select to null if type is null
+    if (selectType.value ==='') {
+        selectType.value = '';
+        selectCountry.value = '';
+        selectState.value = '';
+    }
     let dataType, dataCountry, dataState;
     if (selectType.value === '') {type = '0'} else {type = '1'}
     if (selectCountry.value === '') {country = '0'} else {country = '1'}
     if (selectState.value === '') {state = '0'} else {state = '1'}
-
     let combinationString = type + country + state;
-    // setting all select to null if type is null
-    if (selectType.value ==='') {
-        selectCountry.value = '';
-        selectState.value = '';
-    }
 
     switch (combinationString) {
         case '100':
@@ -150,7 +152,6 @@ function stateChange() {
             // checking for type & country
             divRoutes.forEach((div) => {
                 dataCountry = div.getAttribute('data-LocationCountry');
-                console.log(selectCountry.value)
                 if (dataCountry === selectCountry.value) {
                     div.style.display = 'block';
                 } else {
@@ -177,14 +178,25 @@ function stateChange() {
             })
     }
 }
-/*
-    fetch("http://localhost:5000/routes")
-        .then((response) => {
-            // Do something with response
-            console.log(routes)
-        })
-        .catch(function (err) {
-            console.log("Unable to fetch -", err);
-        });
+ function selectRoute(routeID) {
 
- */
+     let divRoutes = document.querySelectorAll('.route-info-container');
+
+     divRoutes.forEach((div) => {
+         div.style.display = 'none';
+         if (div.getAttribute('id') === routeID) {
+             div.style.display = 'block';
+         }
+     })
+ }
+
+let popUp = document.getElementById('group-form-popup');
+
+ function showPopUp(param) {
+    popUp.style.display = "flex";
+    console.log(param)
+ }
+
+ function hidePopUp() {
+     popUp.style.display = "none";
+ }
