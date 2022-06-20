@@ -73,35 +73,71 @@
 
 <div class="contentContainer">
     <div class="left-container">
-    <% for(let i = 0; i < routes.length; i++) { %>
+    <% for(let i = 0; i < routes.length; i++) {
+        let picture;
+        if (routes[i].picture1 === null) {
+            picture = 'image-not-found.png'
+        } else {picture = routes[i].picture1} %>
 
         <div onclick="selectRoute('<%= routes[i].RID %>')" class="routes-box" data-LocationCountry="<%= routes[i].LocationCountry %>"
              data-Type="<%= routes[i].Type %>" data-LocationState="<%= routes[i].LocationState %>">
             <p><strong><%= routes[i].Name %></strong></p>
             <p><%= routes[i].Description %></p>
             <div class="route-img"><%= routes[i].picture1 %></div>
-            <div class="route-info-container" id="route-info-container-mobile">
+            <div class="route-info-container-mobile" id="<%= routes[i].RID %>-mobile">
+                <div class="route-info-img">
+                    <img src="/uploads/<%= picture %>" alt=""></div>
                 <div class="route-info">
-
+                    <h2><%= routes[i].LocationCountry %>, <%= routes[i].LocationMountain %></h2>
                 </div>
+                <button class="btn" onclick="showPopUp('<%= routes[i].RID %>')">Go there</button>
             </div>
         </div>
     <% } %>
     </div>
 
 <div class="right-container">
-    <% for(let i = 0; i < routes.length; i++) { %>
+    <% for(let i = 0; i < routes.length; i++) {
+        let picture;
+    if (routes[i].picture1 === null) {
+        picture = 'image-not-found.png'
+    } else {picture = routes[i].picture1} %>
+
     <div class="route-info-container" id="<%= routes[i].RID %>">
-        <div class="route-info-img">
-            <% if(routes[i].picture1 === null) {%>
-                <img src="/img/image-not-found.png" alt="">
-                <% } else { %>
-            <img src="/uploads/<%= routes[i].picture1 %>" alt=""></div>
-        <% } %>
-        <div class="route-info">
-            <h2><%= routes[i].LocationCountry %>, <%= routes[i].LocationMountain %></h2>
+        <div class="route-info-left">
+            <div class="route-info-label">
+            <h1><%= routes[i].LocationCountry %></h1>
+            <h2><%= routes[i].LocationState %>, <%= routes[i].LocationMountain %>, <%= routes[i].LocationMArea %></h2>
+            <br>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d35139.376805862456!2d9.934659818956723!3d47.18173915946212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479b59c14043029b%3A0x3192caf94bd87b8b!2sRote%20Wand!5e0!3m2!1sfr!2sat!4v1655737546330!5m2!1sfr!2sat" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="route-info-details">
+                <div class="icon">
+                    <i class="fa fa-tasks" aria-hidden="true"></i>
+                    <p class="details"><%= routes[i].Cotation %></p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-align-right" aria-hidden="true"></i>
+                    <p class="details"><%= routes[i].Altitude %> m</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-sun-o" aria-hidden="true"></i>
+                    <p class="details"><%= routes[i].Exposure %> side</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-hand-rock-o" aria-hidden="true"></i>
+                    <p class="details"><%= routes[i].RockType %></p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+                    <p class="details"><%= routes[i].Length %> m</p>
+                </div>
+            </div>
         </div>
+        <div class="route-info-img">
+            <img src="/uploads/<%= picture %>" alt=""></div>
         <button class="btn" onclick="showPopUp('<%= routes[i].RID %>')">Go there</button>
+
     </div>
         <% } %>
 </div>

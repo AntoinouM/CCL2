@@ -7,6 +7,8 @@ let routesTypeValues = [];
 let selectCountry = document.getElementById('location-country');
 let selectState = document.getElementById('location-state');
 let selectType = document.getElementById('climbing-type');
+let popUp = document.getElementById('group-form-popup');
+let body = document.querySelector('body');
 
 let user = {};
 
@@ -179,8 +181,9 @@ function stateChange() {
     }
 }
  function selectRoute(routeID) {
-
+    hidePopUp()
      let divRoutes = document.querySelectorAll('.route-info-container');
+    let divRoutesMobile = document.querySelectorAll('.route-info-container-mobile');
 
      divRoutes.forEach((div) => {
          div.style.display = 'none';
@@ -188,9 +191,15 @@ function stateChange() {
              div.style.display = 'block';
          }
      })
+     if (body.offsetWidth <= 1000) {
+         divRoutesMobile.forEach((div) => {
+             div.style.display = 'none';
+             if (div.getAttribute('id') === routeID + '-mobile') {
+                 div.style.display = 'block';
+             }
+         })
+     }
  }
-
-let popUp = document.getElementById('group-form-popup');
 
  function showPopUp(param) {
     popUp.style.display = "flex";
