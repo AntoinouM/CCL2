@@ -1,8 +1,37 @@
 @import './constant.css';
 
+body {
+    width: 100%;
+    height: 100vh;
+    background-image: url('/img/bg-bw.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--bg-color);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #000;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 .searchContainer {
     position: relative;
-    margin-top: 50px;
+    padding: var(--navbar-height) 0;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -14,12 +43,12 @@
     padding: var(--searchbox-padding-v) var(--searchbox-padding-h);
     border-radius: var(--searchbox-border-radius);
     gap: var(--searchbox-gap);
-    margin-top: var(--searchbox-margin-v);
+    margin-top: calc(var(--searchbox-margin-v) * 1.5);
     background-color: var(--searchbox-bg);
     margin-bottom: var(--searchbox-margin-v);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
 }
-
-
 
 .select-box {
     position: relative;
@@ -73,6 +102,10 @@ select::-ms-expand {
     padding: var(--route-padding-v) var(--route-padding-h);
 } .routes-box:hover {background-color: var(--searchbox-bg)}
 
+  .routes-box > p {
+      font-size: 14px;
+  }
+
 .route-info-container-mobile { /* for mobile */
     display: none;
 }
@@ -80,22 +113,38 @@ select::-ms-expand {
 .contentContainer {
     display: flex;
     gap: 70px;
+    margin-top: 12%;
     padding: var(--contentcontainer-pading-h);
+
 }
 
 .left-container {
     overflow-y: auto;
     width: 32%;
-    background-color: var(--left-container-bg);
+    height: 63vh;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
     border-radius: var(--left-container-border-radius);
     border: 1px var(--searchbox-bg) solid;
 }
 
+.left-container p:after, .left-container h2 {
+    mix-blend-mode: difference;
+}
+
 .right-container {
     width: 65%;
-    background-color: var(--right-container-bg);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
     border-radius: var(--left-container-border-radius);
     border: 1px var(--searchbox-bg) solid;
+}
+
+.btn-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
 }
 
 .route-info-img {
@@ -117,25 +166,35 @@ select::-ms-expand {
 
 .route-info-left {
     display: flex;
-    justify-content: space-between;
-    padding: var(--route-padding-h);
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: calc(var(--route-padding-h) / 2);
 }
 
 .route-info-label {
     display: flex;
     flex-direction: column;
-    margin-left: 100px;
+    margin-left: 70px;
+}
+
+.vertical-bottom {
+    display: flex;
+    align-items: end;
 }
 
 .route-info-details {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 130px 200px 0 0;
+    margin-right: 70px;
+    height: 280px;
+    width: auto;
     border: 1px black solid;
     border-radius: 10px;
-    padding: 10px 35px;
+    padding: 10px 15px;
+    font-size: 14px;
 }
+.titre {display: flex; gap: 20px; align-items: baseline}
 
 .icon {
     display: flex;
@@ -160,11 +219,19 @@ select::-ms-expand {
         display: none
     }
     .left-container {
-        width: 90%;
+        width: 100%;
+    }
+    .route-info-container-mobile {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        align-content: center;
     }
     .contentContainer {
         display: flex;
         justify-content: center;
+        padding: 10px;
     }
 }
 

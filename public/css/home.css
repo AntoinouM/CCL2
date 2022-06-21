@@ -1,23 +1,20 @@
+@import './constant.css';
+
 /*  TOP ELEMENT */
 .topContainer {
     position: relative;
     overflow: hidden;
     display: flex;
     justify-content: center;
-    padding-bottom: 7rem;
-    padding-top: calc(7rem + 72px);
 }
 
-.topContainer img {
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    height: 100%;
-    min-width: 55%;
-    width: auto;
-    z-index: 0;
-    clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+.bg-img {
+    height: 100vh;
+    width: 100%;
+    background-image: url('/img/home-bg-3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
 }
 
 .topContainer-content {
@@ -36,8 +33,6 @@
 
 .topContainer-content h1 {
     font-size: 75px;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
 }
 
 .topContainer-content h2 {
@@ -84,13 +79,6 @@
 }
 
 @media (max-width: 1370px) {
-    .topContainer img {
-        top: 0;
-        left: 0;
-        height: auto;
-        width: 100%;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-    }
     .topContainer-content {
         min-height: 10rem;
     }
@@ -99,12 +87,25 @@
     }
 }
 
-@media (max-width: 751px) {
-    .topContainer img {
-        display: none;
+@media (max-width: 990px) {
+    .bg-img {
+        height: 50vh;
+        width: 100%;
+        background-image: url('/img/home-bg-3.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
     }
+}
+
+@media (max-width: 751px) {
     .topContainer{
         background-color: bisque;
+    }
+    .topContainer-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -119,6 +120,12 @@
     .topContainer {
         padding-bottom: 5rem;
         padding-top: calc(5rem + 22px);
+    }
+    .bg-img {
+        height: 20vh;
+        width: 100%;
+        background-image: none;
+        background-color: var(--navabr-color-sec-bg);
     }
 }
 
@@ -180,15 +187,14 @@
 
 @media (max-width: 1500px) {
     .route-box {
-        padding: 0 3rem;
         display: flex;
         flex-direction: column;
         width: 80%;
         position: relative;
-        margin-top: 5rem;
         height: 10rem;
         gap: 1rem;
         align-items: center;
+        padding: 2rem 3rem;
     }
     section.route-box {
         height: 350px;

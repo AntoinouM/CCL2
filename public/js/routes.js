@@ -195,7 +195,7 @@ function stateChange() {
          divRoutesMobile.forEach((div) => {
              div.style.display = 'none';
              if (div.getAttribute('id') === routeID + '-mobile') {
-                 div.style.display = 'block';
+                 div.style.display = 'flex';
              }
          })
      }

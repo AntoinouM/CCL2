@@ -18,7 +18,7 @@
     <div class="logo">LOGO</div>
     <nav>
         <ul>
-            <li><a href="#">HOME</a></li>
+            <li><a href="/home">HOME</a></li>
             <li><a href="/routes">ROUTES</a></li>
             <li><a href="#">GROUPS</a></li>
             <li><a href="#">ABOUT</a></li>
@@ -35,8 +35,7 @@
 </header>
 
 <!-- top div -->
-<div class="topContainer">
-    <img src="/img/home-bg-4.png" alt="">
+<div class="topContainer bg-img">
     <div class="topContainer-content">
         <h1>A Rock at a Time</h1>
         <h2>Conquer the summit</h2>
@@ -81,30 +80,24 @@
     <section class="route-box">
         <div class="route-img"><img src="/uploads/silvapark-01.webp" alt=""></div>
         <div class="route-content">
-            <h3 class="route-title">Route 1</h3>
-            <p class="route-description">Fun line of the central part of Rote Wand. Climb 5 pitches of technical
-                slab followed by one easier, a little bit grassy pitch. The last 2 pitches are steeper more
-                powerfull climbing.</p>
+            <h3 class="route-title"><%= routes[2].Name %></h3>
+            <p class="route-description"><%= routes[2].Description %></p>
         </div>
     </section>
 
     <section class="route-box">
         <div class="route-content">
-            <h3 class="route-title">Route 2</h3>
-            <p class="route-description">Fun line of the central part of Rote Wand. Climb 5 pitches of technical
-                slab followed by one easier, a little bit grassy pitch. The last 2 pitches are steeper more
-                powerfull climbing.</p>
+            <h3 class="route-title"><%= routes[1].Name %></h3>
+            <p class="route-description"><%= routes[1].Description %></p>
         </div>
-        <div class="route-img"><img src="../public/uploads/silvapark-01.webp" alt=""></div>
+        <div class="route-img"><img src="/uploads/silvapark-01.webp" alt=""></div>
     </section>
 
     <section class="route-box">
         <div class="route-img"><img src="/uploads/silvapark-01.webp" alt=""></div>
         <div class="route-content">
-            <h3 class="route-title"><%= routes[0].Name %>></h3>
-            <p class="route-description">Fun line of the central part of Rote Wand. Climb 5 pitches of technical
-                slab followed by one easier, a little bit grassy pitch. The last 2 pitches are steeper more
-                powerfull climbing.</p>
+            <h3 class="route-title"><%= routes[0].Name %></h3>
+            <p class="route-description"><%= routes[0].Description %></p>
         </div>
     </section>
 </div>

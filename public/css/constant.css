@@ -1,20 +1,21 @@
 :root {
     /* general */
-    --bg-gradient: linear-gradient(0deg, rgba(242, 188, 247, 58%) 12%, #ffffff 25%);
+    --bg-color: #e4e4e6;
+
 
     /* route view - search */
     --searchbox-padding-v: 25px;
     --searchbox-padding-h: 40px;
     --searchbox-margin-v: 2vh;
     --searchbox-margin-h: 1vw;
-    --searchbox-border-radius: 20px;
-    --searchbox-bg: #f2bcf7;
+    --searchbox-border-radius: 10px;
+    --searchbox-bg: rgba(121, 121, 121, 0.5);
     --searchbox-gap: 48px;
 
     --search-font: black;
     --search-font-size: 22px;
     --search-bg: white;
-    --search-bg-sec: #97619d;
+    --search-bg-sec: rgba(101, 60, 35, 0.85);
     --search-width: 160px;
     --search-after-width: 25px;
     --search-radius: 5px;
@@ -28,9 +29,9 @@
     /* route view - content */
     --contentcontainer-pading-h: 50px;
     --left-container-bg: #d3d3d3;
-    --left-container-border-radius: 20px;
+    --left-container-border-radius: 10px;
     --right-container-bg: #d3d3d3;
-    --right-container-border-radius: 20px;
+    --right-container-border-radius: 10px;
     --route-border-color: rgba(93, 93, 93, 0.5);
     --route-padding-v: 1vh;
     --route-padding-h: 2vw;
