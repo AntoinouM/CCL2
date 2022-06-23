@@ -3,6 +3,7 @@ const climbersController = require("../controllers/climbersController");
 const routesController = require("../controllers/routesController");
 const climbersModel = require("../models/climbersModel");
 const routesModel = require("../models/routesModel");
+const projectsModel = require("../models/projectsModel")
 const router = express.Router();
 let storage = {}; //object to store the req.body
 
@@ -16,7 +17,10 @@ router.get('/home', (req, res) => {
         .then(users => {
             routesModel.getRoutes()
                 .then(routes => {
-                    res.render('home', {users: users, routes: routes})
+                    projectsModel.getProjects()
+                        .then(projects => {
+                            res.render('home', {users: users, routes: routes, projects: projects})
+                        })
                 })
         })
 })

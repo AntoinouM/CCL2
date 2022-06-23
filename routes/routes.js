@@ -5,6 +5,7 @@ const authenticationService = require('../services/authentication');
 const routesController = require('../controllers/routesController');
 const climbersModel = require("../models/climbersModel");
 const routesModel = require("../models/routesModel");
+const projectsController  = require("../controllers/projectsController")
 
 //router.use(authenticationService.authenticateJWT);
 
@@ -15,6 +16,9 @@ router.get('/', (req, res) => {
             res.render('routes', {routes: routes, routesJSON: JSON.stringify(routes)})
         })
 })
+router.post('/addProject', projectsController.addProject)
+
+
 
 module.exports = router;
 

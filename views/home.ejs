@@ -21,7 +21,7 @@
             <li><a href="/home">HOME</a></li>
             <li><a href="/routes">ROUTES</a></li>
             <li><a href="#">GROUPS</a></li>
-            <li><a href="#">ABOUT</a></li>
+            <li><a href="/climbers">CLIMBERS</a></li>
             <li class="sub-menu"><a href="#"><i class="fa fa-user-circle-o user-logo" aria-hidden="true"></i></a>
                 <ul>
                     <li><a href="/climbers/myprofile">My profile</a></li>
@@ -39,46 +39,47 @@
     <div class="topContainer-content">
         <h1>A Rock at a Time</h1>
         <h2>Conquer the summit</h2>
-        <button class="btn">Explore</button>
+        <button class="btn" onclick="showRoutes()">Explore</button>
     </div>
     <div class="align-vertical">
         <div class="project-display-top">
+            <% for(let i = 0; i < projects.length; i++) {
+                let picture;
+                  if (routes[projects[i].FK_RID - 1].picture1 === null) {
+                    picture = 'image-not-found.png'
+                } else {picture = routes[projects[i].FK_RID - 1].picture1} %>
             <section class="project-box">
-                <div class="project-img"><img src="/uploads/rote-wand-01.jpeg" alt=""></div>
+                <div class="project-img"><img src="/uploads/<%= picture %>" alt=""></div>
                 <div class="project-content">
-                    <div class="project-location">Tirol</div>
-                    <div class="project-date">23 June 2022 - 12:00</div>
+                    <div class="project-location"><%= routes[projects[i].FK_RID - 1].Name %></div>
+                    <div class="project-date"><%= projects[i].Date %></div>
                 </div>
             </section>
-            <section class="project-box">
-                <div class="project-img"><img src="/uploads/rote-wand-01.jpeg" alt=""></div>
-                <div class="project-content">
-                    <div class="project-location"> <%= users[2].Name %></div>
-                    <div class="project-date">24 June 2022 - 12:00</div>
-                </div>
-            </section>
-            <section class="project-box">
-                <div class="project-img"><img src="/uploads/rote-wand-01.jpeg" alt=""></div>
-                <div class="project-content">
-                    <div class="project-location">Vienna</div>
-                    <div class="project-date">26 June 2022 - 12:00</div>
-                </div>
-            </section>
-            <section class="project-box">
-                <div class="project-img"><img src="/uploads/rote-wand-01.jpeg" alt=""></div>
-                <div class="project-content">
-                    <div class="project-location">Linz</div>
-                    <div class="project-date">28 June 2022 - 12:00</div>
-                </div>
-            </section>
+            <% } %>
         </div>
     </div>
 </div>
-
+<div class="align-vertical-mobile">
+    <div class="project-display-top">
+        <% for(let i = 0; i < projects.length; i++) {
+            let picture;
+            if (routes[projects[i].FK_RID - 1].picture1 === null) {
+                picture = 'image-not-found.png'
+            } else {picture = routes[projects[i].FK_RID - 1].picture1} %>
+        <section class="project-box">
+            <div class="project-img"><img src="/uploads/<%= picture %>" alt=""></div>
+            <div class="project-content">
+                <div class="project-location"><%= routes[projects[i].FK_RID - 1].Name %></div>
+                <div class="project-date"><%= projects[i].Date %></div>
+            </div>
+        </section>
+        <% } %>
+    </div>
+</div>
 <!-- Routes display -->
 <div class="horizontal-center">
     <section class="route-box">
-        <div class="route-img"><img src="/uploads/silvapark-01.webp" alt=""></div>
+        <div class="route-img"><img src="/uploads/<%= routes[2].picture1 %>" alt=""></div>
         <div class="route-content">
             <h3 class="route-title"><%= routes[2].Name %></h3>
             <p class="route-description"><%= routes[2].Description %></p>
@@ -90,11 +91,11 @@
             <h3 class="route-title"><%= routes[1].Name %></h3>
             <p class="route-description"><%= routes[1].Description %></p>
         </div>
-        <div class="route-img"><img src="/uploads/silvapark-01.webp" alt=""></div>
+        <div class="route-img"><img src="/uploads/<%= routes[1].picture1 %>" alt=""></div>
     </section>
 
     <section class="route-box">
-        <div class="route-img"><img src="/uploads/silvapark-01.webp" alt=""></div>
+        <div class="route-img"><img src="/uploads/<%= routes[0].picture1 %>" alt=""></div>
         <div class="route-content">
             <h3 class="route-title"><%= routes[0].Name %></h3>
             <p class="route-description"><%= routes[0].Description %></p>
@@ -102,9 +103,9 @@
     </section>
 </div>
 
-
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="/js/navbar.js"></script>
+<script src="/js/home.js"></script>
 </body>
 
 </html>

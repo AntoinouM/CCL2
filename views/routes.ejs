@@ -60,17 +60,19 @@
         </div>
     </div>
 </div>
-    <form action="/climbers/addProject" class="group-form-popup" id="group-form-popup" method="post">
+    <form action="/routes/addProject" class="group-form-popup" id="group-form-popup" method="post">
+        <input type="hidden" style="visibility: hidden" name="RID" value="" id="RID">
     <label for="project-date">When do you want to go?</label>
     <input type="date" id="project-date" class="input" name="Date" />
     <label for="project-time">What time?</label>
     <input type="time" id="project-time" class="input" name="Time" />
     <div class="buttons-container">
-    <button class="btn" onclick="hidePopUp()">Cancel</button>
-
+        <button type="button" class="btn btn2" onclick="hidePopUp()">Cancel</button>
     <input type="submit" class="btn" value="Confirm" />
+
     </div>
     </form>
+
 
 <div class="contentContainer">
     <div class="left-container">
@@ -130,11 +132,11 @@
             <div class="route-info-label">
                 <div class="left-side">
                      <div class="titre">
-            <h1><%= routes[i].LocationCountry %></h1><h2><%= routes[i].LocationState %>, <%= routes[i].LocationMountain %>, <%= routes[i].LocationMArea %></h2>
+            <h1><%= routes[i].LocationCountry %></h1><h2><%= routes[i].LocationState %>, <%= routes[i].LocationMountain %>, <%= routes[i].LocationArea %></h2>
             <br>
+                </div>
                     <div class="route-info-img">
                         <img src="/uploads/<%= picture %>" alt=""></div>
-                </div>
                 </div>
             </div>
             <div class="vertical-bottom">

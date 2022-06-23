@@ -202,8 +202,9 @@ function stateChange() {
  }
 
  function showPopUp(param) {
-    popUp.style.display = "flex";
-    console.log(param)
+     let inputRID = document.getElementById('RID');
+     inputRID.value = param;
+     popUp.style.display = "flex";
  }
 
  function hidePopUp() {

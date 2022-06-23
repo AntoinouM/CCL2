@@ -11,6 +11,9 @@ module.exports = router;
 const climbersController = require('../controllers/climbersController');
 router.get('/', climbersController.getUsers);
 
+
 router.post('/addProject', climbersController.addProject)
+router.post('/editSelf', climbersController.uploadAvatar)
 
 router.get('/myprofile', climbersController.getMe);
+router.get('/editprofile', climbersController.editMe);

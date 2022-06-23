@@ -59,14 +59,6 @@ let updateUser = (userData, id) => new Promise((resolve, reject) => {
 })
 
  */
-let addProject = (projectData) => new Promise((resolve, reject) => {
-    let sql = "INSERT INTO projects (FK_RID, Date, Time) VALUES ('3', '2022-06-23', '14:00:00')";
-    console.log(projectData.Date, projectData.Time)
-    resolve()
-    reject()
-})
-
-
 
 let addUser = (newUser) => new Promise(async function(resolve, reject) {
     let sql = "SELECT * FROM climbers WHERE email = " + db.escape(newUser.email)
@@ -155,5 +147,4 @@ module.exports = {
     deleteUser,
      */
     getMe,
-    addProject,
 }

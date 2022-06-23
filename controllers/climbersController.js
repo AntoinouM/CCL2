@@ -13,10 +13,10 @@ function getUsers(req, res, next) {
         }) //shortcut to write arrow function
         .catch(error => res.sendStatus(500))
 }
-/*
 
+/*
 function getUser (req, res, next) {
-    userModel.getUser(req.params.id)
+    climbersModel.getUser(req.params.id)
         .then(user => {
             if (user === undefined) {
                 res.render('404')
@@ -29,19 +29,19 @@ function getUser (req, res, next) {
 }
 
 function editUser (req, res, send) {
-    userModel.getUser(req.params.id)
+    climbersModel.getUser(req.params.id)
         .then(user => res.render('editUser', {user}))
         .catch(error => res.sendStatus(500))
 }
 
 function updateUser (req, res, send) {
-    userModel.updateUser(req.body, req.params.id)
+    climbersModel.updateUser(req.body, req.params.id)
         .then(user => {res.render('user', {user}); console.log(user)})
         .catch(error => res.sendStatus(500))
 }
+*/
 
 
- */
 function addProject(req, res, next) {
     climbersModel.addProject(req.body)
         .then(/* here add next move call climbersModel...*/)
@@ -69,56 +69,50 @@ function signIn (req, res, send) {
         })     //error
         .catch(error => res.sendStatus(500))
 }
-/*
+
 function uploadAvatar (req, res, send) {
     let avatar;
     let uploadPath;
+    let cookieId = authenticationService.getCookieInfo(req.cookies).id;
 
-    if (!req.files) return res.status(500).send('No files were uploaded.')
+    if (!req.files) return res.render('me', {uploadAvatar: false})
     avatar = req.files.avatar;
     let randomName = uuid.v4() + avatar.name;
     uploadPath = mainDir + '/public/uploads/' + randomName;
 
-    let sql = "UPDATE users SET Picture = " + db.escape(randomName) + " WHERE users.UID = " + req.params.id;
+    let sql = "UPDATE climbers SET avatar = " + db.escape(randomName) + " WHERE climbers.GID = " + cookieId;
     db.query(sql, function (err, user, fields) {
         if (err) return res.status(500).send(err);
-        console.log(err)
         // mv() function to move into folder
         avatar.mv(uploadPath, function (err) {
             if (err) return res.status(500).send(err);
-            res.redirect('/users/' + req.params.id + '/edit')
+            res.redirect('/climbers/myprofile')
         })
     })
 }
-
-function deleteUser (req, res, send) {
-    userModel.deleteUser(req.params.id)
-        .then(user => res.redirect('/users/'))
-        .catch(error => res.sendStatus(400))
-}
-*/
 
 function getMe(req, res, send) {
     let cookieId = authenticationService.getCookieInfo(req.cookies).id;
     climbersModel.getMe(cookieId)
         .then(user => {
-            res.render('me', {user})
+            res.render('me', {user, uploadAvatar: true})
+        })
+}
+
+function editMe(req, res, send) {
+    let cookieId = authenticationService.getCookieInfo(req.cookies).id;
+    climbersModel.getMe(cookieId)
+        .then(user => {
+            res.render('editprofile', {user})
         })
 }
 
 module.exports = {
     getUsers,
-    /*
-    getUser,
-    editUser,
-    updateUser,
-    */
     addUser,
     signIn,
-    /*
     uploadAvatar,
-    deleteUser,
-    */
     getMe,
     addProject,
+    editMe,
 }

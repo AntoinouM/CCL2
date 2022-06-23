@@ -48,10 +48,12 @@
                 picture = user.avatar;
             }%>
             <img src="/uploads/<%= picture %>" alt="avatar of the user" class="avatar">
-            <div class="link">
-            <a href="/climbers/editprofile" class="action">Edit profile</a>
+            <form action="/climbers/editSelf" method="post" class="form" enctype="multipart/form-data">
+                <label for="avatar">Choose a profile picture:</label>
+                <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+                <input type="submit" class="btn" value="Upload avatar"/>
+            </form>
             <a href="" class="action red">Delete account</a>
-            </div>
         </div>
     </div>
     <div class="right-container">
