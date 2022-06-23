@@ -9,7 +9,7 @@ let storage = {}; //object to store the req.body
 
 router.get('/', (req, res)=>
 {
-    res.render('index', {title: 'CCL2 HOMEPAGE'});
+    res.render('index', {correctPassword: true, emailUsed: false});
 });
 
 router.get('/home', (req, res) => {

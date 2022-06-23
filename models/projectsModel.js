@@ -2,8 +2,6 @@ const db = require('../services/database.js').config;
 const authenticationService = require("../services/authentication");
 const bcrypt = require("bcrypt");
 
-
-
 let getProjects = () => new Promise((resolve, reject) => {
     db.query("SELECT * from projects", function (err, routes, fields) {
         if (err) reject (err);
@@ -41,4 +39,5 @@ module.exports = {
     getProjects,
     addProject,
     getLastProject,
+    joinProject,
 }

@@ -39,7 +39,13 @@ function editUser (req, res, send) {
 function updateUser (req, res, send) {
     let cookieId = authenticationService.getCookieInfo(req.cookies).id;
     climbersModel.updateUser(req.body, cookieId)
-        .then(user => {res.render('me', {user, uploadAvatar: true})})
+        .then(user => {
+            climbersModel.getAllInfo(cookieId)
+                .then(infos => {
+                    console.log(infos)
+                    res.render('me', {user, infos, uploadAvatar: true})
+                })
+        })
         .catch(error => {
             res.sendStatus(500);
             console.log(error);
@@ -55,10 +61,10 @@ function addProject(req, res, next) {
 function addUser (req, res, send) {
     climbersModel.addUser(req.body)
         .then(user => {
+            console.log(user)
             if (user === undefined) {
-                res.send('This email already exists')
+                res.render('index', {emailUsed: true})
             } else {
-                // add cookie
                 authenticationService.authenticateUser(req.body, user, res)
             }
         })
@@ -70,7 +76,7 @@ function signIn (req, res, send) {
         //.then(user => res.redirect('/users/' + user.UID))
         .then(user => {
             authenticationService.authenticateUser(req.body, user, res)
-        })     //error
+        })
         .catch(error => res.sendStatus(500))
 }
 
@@ -95,11 +101,16 @@ function uploadAvatar (req, res, send) {
     })
 }
 
+
 function getMe(req, res, send) {
     let cookieId = authenticationService.getCookieInfo(req.cookies).id;
     climbersModel.getMe(cookieId)
         .then(user => {
-            res.render('me', {user, uploadAvatar: true})
+            climbersModel.getAllInfo(cookieId)
+                .then(infos => {
+                    console.log(infos)
+                    res.render('me', {user, infos, uploadAvatar: true})
+                })
         })
 }
 

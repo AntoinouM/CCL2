@@ -27,17 +27,22 @@ function getCookieInfo(cookie) {
     return info;
 }
 
-function authenticateUser({username, password}, user, res) {
+ async function authenticateUser({username, Password}, user, res) {
     /*  for password checking later // not with find // userModel.signIn */
 // check if the user exist
     // if (user && checkPassword(password, user.Password))
+    let passOK;
     if (user) {
+        passOK = await bcrypt.compare(Password, user.Password)
+
+    }
+    if (user && passOK) {
         const accessToken = jwt.sign({id: user.GID, name: user.Name, role: user.Role}, ACCESS_TOKEN_SECRET);
 
         res.cookie('accessToken', accessToken); //send a cookie
         res.redirect('home');
     } else {
-        res.send('Username or password incorrect.');
+        res.render('index', {correctPassword: false, emailUsed: false});
     }
 }
 
@@ -52,7 +57,7 @@ function authenticateJWT (req, res, next) {
             next();
         });
     } else {
-        res.sendStatus(401);
+        res.redirect('/');
     }
 }
 

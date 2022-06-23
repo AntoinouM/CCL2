@@ -12,20 +12,6 @@ let getUsers = () => new Promise((resolve, reject) => {    // getting a promise 
     })
 })
 
-/*
-let getUser = (id) => new Promise((resolve, reject) => {
-    db.query(`SELECT * FROM users WHERE UID = ${parseInt(id)}`, function (err, user, fields) {
-        if (err) reject (err)
-        else if (user.length === 0) {
-            resolve ()
-        } else {
-            resolve(user[0])
-        }
-    })
-})
-
- */
-
 let updateUser = (userData, id) => new Promise((resolve, reject) => {
 
     let sql = "UPDATE climbers SET " +
@@ -44,6 +30,16 @@ let updateUser = (userData, id) => new Promise((resolve, reject) => {
                     resolve(user)
                 })
         }
+    })
+})
+
+//SELECT * from user2project INNER JOIN projects ON projects.PID = user2project.FK_PID INNER JOIN routes ON routes.RID = projects.FK_RID WHERE user2project.FK_GID = 1;
+let getAllInfo = (id) => new Promise((resolve, reject) => {
+    console.log(id)
+    let sql = "SELECT * from user2project INNER JOIN projects ON projects.PID = user2project.FK_PID INNER JOIN routes ON routes.RID = projects.FK_RID WHERE user2project.FK_GID = " + parseInt(id);
+    db.query(sql, function (err, infos, fields) {
+        if (err) reject(err)
+        resolve(infos)
     })
 })
 
@@ -85,19 +81,12 @@ let signIn = (registerUser) => new Promise((resolve, reject) => {
         else if (user.length === 0) {
             resolve()
         } else {
-            // if (checkPassword(registerUser.password, user[0].Password))
             resolve(user[0])
         }
     })
 })
 
 /*
-//new view call me getting the information from => req.cookies['accessToken'].id
-
-let uploadAvatar = () => new Promise((resolve, reject) => {
-
-})
-
 // DELETE FROM `users` WHERE `users`.`UID` = 8;
 let deleteUser = (id) => new Promise((resolve, reject) => {
     let sql = "DELETE FROM users WHERE UID = " + parseInt(id);
@@ -123,15 +112,12 @@ let getMe = (id) => new Promise((resolve, reject) => {
 
 module.exports = {
     getUsers,
-    /*
-    getUser,
-         */
     updateUser,
     addUser,
     signIn,
     /*
-    uploadAvatar,
     deleteUser,
      */
+    getAllInfo,
     getMe,
 }

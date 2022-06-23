@@ -7,16 +7,17 @@ const climbersModel = require("../models/climbersModel");
 const routesModel = require("../models/routesModel");
 const projectsController  = require("../controllers/projectsController")
 
-//router.use(authenticationService.authenticateJWT);
+router.use(authenticationService.authenticateJWT);
 
 // routes display page
-router.get('/', (req, res) => {
-    routesModel.getRoutes()
-        .then(routes => {
-            res.render('routes', {routes: routes, routesJSON: JSON.stringify(routes)})
-        })
-})
-router.post('/addProject', projectsController.addProject)
+router.route('/')
+    .get((req, res) => {
+        routesModel.getRoutes()
+            .then(routes => {
+                res.render('routes', {routes: routes, routesJSON: JSON.stringify(routes), groupAdded: false})
+            })
+    })
+    .post(projectsController.addProject)
 
 
 

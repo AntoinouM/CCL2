@@ -59,6 +59,21 @@
             <h1><%= user.Name %> <%=user.LastName %></h1>
         </div>
         <p><%= user.email %></p>
+        <div class="last-routes">
+        <% for (i = 0; i < infos.length; i++) {
+            let picture2;
+            if (infos[i].picture1 === undefined || infos[i].picture1 === null) {
+                picture2 = 'image-not-found';
+            } else { picture2 = infos[i].picture1 } %>
+            <div class="context">
+                <img src="/uploads/<%= picture2 %>" alt="">
+                <div class="text">
+        <p><%= infos[i].Name %>, <%= infos[i].LocationArea%></p>
+        <p><%= infos[i].Cotation %></p>
+                </div>
+            </div>
+        <%}%>
+        </div>
     </div>
 </div>
 
@@ -66,6 +81,9 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="/js/navbar.js"></script>
+<script>
+
+</script>
 
 </body>
 
