@@ -16,6 +16,7 @@
                 <input type="text" placeholder="First name" class="input" name="Name" />
                 <input type="text" placeholder="Last name" class="input" name="LastName" />
                 <input type="email" placeholder="Email" class="input" name="email" />
+                <div class="alert" id="email">Email already used</div>
                 <input type="password" placeholder="Password" autocomplete="on" class="input" name="Password" />
 
                 <input class="btn" type="submit" value="Register"/>
@@ -28,6 +29,7 @@
                 <h2 class="form__title">Log In</h2>
                 <input type="email" placeholder="Email" class="input" name="email" />
                 <input type="password" placeholder="Password" autocomplete="on" class="input" name="Password" />
+                <div class="alert" id="pw">Please sign in</div>
 
                 <input class="btn" type="submit" value="Log In"/>
             </form>
@@ -54,7 +56,23 @@
 
 <!--Content ends-->
 
+<script>
+    let pwMsg = '<%- correctPassword %>'
+    let emailMsg = '<%- emailUsed %>'
 
+    let pwDiv = document.getElementById('pw')
+    let emailDiv = document.getElementById('email')
+
+    if (pwMsg === false) {
+        pwDiv.style.display = 'block';
+    } else { pwDiv.style.display = 'none' }
+
+    if ( emailMsg === true) {
+        emailDiv.style.display = 'block';
+    } else { emailDiv.style.display = 'none' }
+
+</script>
 <script src="/js/panel.js"></script>
+
 </body>
 </html>

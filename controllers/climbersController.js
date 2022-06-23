@@ -63,7 +63,7 @@ function addUser (req, res, send) {
         .then(user => {
             console.log(user)
             if (user === undefined) {
-                res.render('index', {emailUsed: true})
+                res.render('index', {correctPassword: true, emailUsed: true})
             } else {
                 authenticationService.authenticateUser(req.body, user, res)
             }
@@ -108,7 +108,6 @@ function getMe(req, res, send) {
         .then(user => {
             climbersModel.getAllInfo(cookieId)
                 .then(infos => {
-                    console.log(infos)
                     res.render('me', {user, infos, uploadAvatar: true})
                 })
         })
