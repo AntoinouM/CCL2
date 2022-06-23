@@ -24,41 +24,28 @@ let getUser = (id) => new Promise((resolve, reject) => {
     })
 })
 
+ */
+
 let updateUser = (userData, id) => new Promise((resolve, reject) => {
-    let sql = "UPDATE users SET " +
+
+    let sql = "UPDATE climbers SET " +
         "Name = " + db.escape(userData.Name) +
         ", LastName = " + db.escape(userData.LastName) +
-        ", Location = " + db.escape(userData.Location) +
         ", email = " + db.escape(userData.email) +
-        ", StudyProgramme = " + db.escape(userData.StudyProgramme) +
-        ", Description = " + db.escape(userData.StudyProgramme) +
-        ", Math = " + db.escape(userData.Math) +
-        ", Coding = " + db.escape(userData.Coding) +
-        ", Art = " + db.escape(userData.Art) +
-        ", Law = " + db.escape(userData.Law) +
-        ", Language = " + db.escape(userData.Language) +
-        ", Business = " + db.escape(userData.Business) +
-        " WHERE UID = " + parseInt(id);
+        " WHERE GID = " + id;
 
 
     db.query(sql, function (err, user, fields) {
         if(err) {reject(err);
             console.log(err)}
         else {
-            getUsers()
-                .then(users => {
-                    const UserFromDatabase = users.find(user => {
-                        return user.email === userData.email
-                    })
-                    resolve(UserFromDatabase)
+            getMe(id)
+                .then(user => {
+                    resolve(user)
                 })
-
         }
-
     })
 })
-
- */
 
 let addUser = (newUser) => new Promise(async function(resolve, reject) {
     let sql = "SELECT * FROM climbers WHERE email = " + db.escape(newUser.email)
@@ -138,8 +125,8 @@ module.exports = {
     getUsers,
     /*
     getUser,
+         */
     updateUser,
-    */
     addUser,
     signIn,
     /*

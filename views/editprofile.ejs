@@ -57,10 +57,21 @@
         </div>
     </div>
     <div class="right-container">
-        <div class="name">
-            <h1><%= user.Name %> <%=user.LastName %></h1>
-        </div>
-        <p><%= user.email %></p>
+        <form action="/climbers/update" method="post" autocomplete="off" class="form">
+            <div class="input-line">
+              <label for="Name">Name: </label>
+              <input type="text" id="Name" name="Name" placeholder="Name">
+            </div>
+            <div class="input-line">
+                <label for="LastName">Last name: </label>
+               <input type="text" id="LastName" name="LastName" placeholder="Last name">
+            </div>
+            <div class="input-line">
+                <label for="email">Email: </label>
+                 <input type="text" id="email" name="email" placeholder="email">
+            </div>
+                <input type="submit" class="btn" value="Update profile">
+        </form>
     </div>
 </div>
 

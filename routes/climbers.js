@@ -14,6 +14,7 @@ router.get('/', climbersController.getUsers);
 
 router.post('/addProject', climbersController.addProject)
 router.post('/editSelf', climbersController.uploadAvatar)
+router.post('/update', climbersController.updateUser)
 
 router.get('/myprofile', climbersController.getMe);
 router.get('/editprofile', climbersController.editMe);

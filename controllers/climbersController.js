@@ -34,13 +34,17 @@ function editUser (req, res, send) {
         .catch(error => res.sendStatus(500))
 }
 
-function updateUser (req, res, send) {
-    climbersModel.updateUser(req.body, req.params.id)
-        .then(user => {res.render('user', {user}); console.log(user)})
-        .catch(error => res.sendStatus(500))
-}
-*/
+ */
 
+function updateUser (req, res, send) {
+    let cookieId = authenticationService.getCookieInfo(req.cookies).id;
+    climbersModel.updateUser(req.body, cookieId)
+        .then(user => {res.render('me', {user, uploadAvatar: true})})
+        .catch(error => {
+            res.sendStatus(500);
+            console.log(error);
+        })
+}
 
 function addProject(req, res, next) {
     climbersModel.addProject(req.body)
@@ -115,4 +119,5 @@ module.exports = {
     getMe,
     addProject,
     editMe,
+    updateUser,
 }
