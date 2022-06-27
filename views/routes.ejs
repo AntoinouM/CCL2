@@ -135,8 +135,37 @@
             <h1><%= routes[i].LocationCountry %></h1><h2><%= routes[i].LocationState %>, <%= routes[i].LocationMountain %>, <%= routes[i].LocationArea %></h2>
             <br>
                 </div>
-                    <div class="route-info-img">
-                        <img src="/uploads/<%= picture %>" alt=""></div>
+                    <div class="slideshow-container">
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">1 / 3</div>
+                            <img src="/uploads/<%= routes[i].picture1 %>" style="width:100%">
+                            <div class="text">Summit</div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">2 / 3</div>
+                            <img src="/uploads/<%= routes[i].picture2 %>" style="width:100%">
+                            <div class="text">South approach</div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">3 / 3</div>
+                            <img src="/uploads/<%= routes[i].picture3 %>" style="width:100%">
+                            <div class="text">Middle section</div>
+                        </div>
+
+                        <a class="prev" onclick="plusSlides(-1, <%= i %>)">❮</a>
+                        <a class="next" onclick="plusSlides(1, <%= i %>)">❯</a>
+
+                    </div>
+                    <br>
+
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1, <%= i %>)"></span>
+                        <span class="dot" onclick="currentSlide(2, <%= i %>)"></span>
+                        <span class="dot" onclick="currentSlide(3, <%= i %>)"></span>
+                    </div>
                 </div>
             </div>
             <div class="vertical-bottom">

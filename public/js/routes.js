@@ -11,6 +11,8 @@ let popUp = document.getElementById('group-form-popup');
 let body = document.querySelector('body');
 
 let user = {};
+let slideIndex = 1;
+let currentID;
 
 /** define select options for types **/
 // set types array
@@ -181,9 +183,10 @@ function stateChange() {
     }
 }
  function selectRoute(routeID) {
+
     hidePopUp()
      let divRoutes = document.querySelectorAll('.route-info-container');
-    let divRoutesMobile = document.querySelectorAll('.route-info-container-mobile');
+     let divRoutesMobile = document.querySelectorAll('.route-info-container-mobile');
 
      divRoutes.forEach((div) => {
          div.style.display = 'none';
@@ -199,7 +202,10 @@ function stateChange() {
              }
          })
      }
+     return currentID = routeID;
  }
+
+
 
  function showPopUp(param) {
      let inputRID = document.getElementById('RID');
@@ -210,3 +216,29 @@ function stateChange() {
  function hidePopUp() {
      popUp.style.display = "none";
  }
+
+showSlides(slideIndex)
+
+function plusSlides(n, i) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n, i) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+}
